@@ -19,7 +19,13 @@ request.on("error", (error) => {
     response.end();
 })
 }).on("data", (chunk) =>
+
+// Change Chunks to lower case chunks
+
 Chunks.push(chunk);
+
+// Remove close curly brace at the beginning of line 29
+
 }).on("end", () => {
 
 const body = Buffer.concat(chunks).toString();
@@ -28,6 +34,9 @@ const responseBody = {
     method,
     body,
 };
+
+// Remove closing parentheses after "error" and replace with a comma
+
 response.on("error") => {
     response.statusCode = 500;
     response.setHeader("Content-Type", "application/json");
@@ -50,13 +59,15 @@ const details = {
 response.setHeader("Content-Type", "application/json");
 response.write(JSON.stringify(details));
 
-Break:
+
+
+break;
 case "/echo":
 
     response.setHeader("Content-Type", "application/json");
     response.write(JSON.stringify(responseBody));
-break:
-default;
+break;
+default:
 
 response.setHeader("Content-Type", "applicaion/json");
 response.write(populateHTML("404 Not Found. Try <a href=`http://localhost:3000`>this</a>"));
